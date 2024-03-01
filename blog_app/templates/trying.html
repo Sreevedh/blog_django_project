@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Nav and Posts</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            width: 200px;
+            height: 100vh;
+            background-color: #f2f2f2;
+            float: left;
+            padding: 20px;
+        }
+
+        main {
+            margin-left: 220px; /* Adjust margin-left to accommodate the width of the navigation bar */
+            padding: 20px;
+        }
+
+        main h2 {
+            color: #333;
+            margin-left: 3px;
+        }
+
+        main p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-left: 3px;
+        }
+
+        .posts{
+            margin-left: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        hr{
+            
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #ccc, #f2f2f2, #ccc);
+            margin: 20px 0;
+        }
+
+        .created_by{
+            font-size: small;
+            text-align: right;
+        }
+
+        /* Add additional styling as needed */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Website</h1>
+    </header>
+
+    <nav>
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="posts">
+            <h2>Latest Posts</h2><hr>
+            <!-- Your posts content goes here -->
+            <p>This is a sample post. It has some content to showcase the styling.</p><hr>
+            <p class="created_by">Another sample post. This one is longer to demonstrate the line-height.</p>
+        </div>
+    </main>
+
+</body>
+</html>

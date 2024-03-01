@@ -1,0 +1,32 @@
+{% extends 'navbar.html' %}
+
+
+
+{% block content %}
+
+<div id="profile-container">
+    <!-- Use .url for the image source -->
+    <img id="profile-picture" src="{{ author.user.profile_picture.url }}" alt="Profile Picture" class="rounded-image">
+    <h2>{{ author.user.username}}</h2>
+</div>
+<hr>
+
+<div id="post-section">
+    <!-- Example posts (replace with your actual posts) -->
+    {% for post in post %}
+    <main>
+        <div class="posts">
+            <h2>{{ post.title }}</h2><hr>
+            <!-- Your posts content goes here -->
+            <p>{{ post.content }}</p><hr>
+            <span style="margin-left: 10px;"><a href="{% url 'blog:update_post' post.id %}">Update</span></a>
+            <span><a href="{% url 'blog:delete_post' post.id %}">Delete</span></a>
+        </div>
+    </main>
+    {% endfor %}
+    <!-- Add more posts as needed -->
+</div>
+
+
+
+{% endblock %}

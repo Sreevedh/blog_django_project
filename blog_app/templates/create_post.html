@@ -1,0 +1,18 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+    {% if page == 'create_post' %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Post</button>
+    </form>
+    {% else %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    {% endif %}
+{% endblock %}

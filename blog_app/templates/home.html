@@ -1,0 +1,21 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <div>
+        <header>
+            <p>Home</p>
+        </header>
+    </div>
+    {% for post in post %}
+
+    <main>
+        <div class="posts">
+            <h2>{{ post.title }}</h2><hr>
+            <!-- Your posts content goes here -->
+            <p>{{ post.content }}</p><hr>
+            <p class="created_by">Created by: {{ post.author }}, {{ post.pub_date }}</p>
+        </div>
+    </main>
+    {% endfor %}
+        <!-- Add more posts as needed -->
+    </div>
+{% endblock %}

@@ -1,0 +1,228 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<style>
+    .nav_main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f2f2f2;
+    }
+
+    body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #profile-container {
+            text-align: center;
+        }
+
+
+        #profile-picture {
+            max-width: 200px;
+            border-radius: 50%;
+        }
+
+        #post-section {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+</style>
+<body>
+
+<nav>
+    <div class="nav_main">
+        <div>
+            <a href="{% url 'blog:home' %}">Home</a>
+        </div>
+        <div>
+            <div>
+                {% if user.is_authenticated %}
+                <span><a href="{% url 'blog:profile' user.id %}">Profile</a></span>
+                <span>Hello, {{ user.username }}! <a href="{% url 'blog:logout' %}">Logout</a></span>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div>
+  
+</div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Nav and Posts</title>
+    <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            width: 200px;
+            height: 100vh;
+            background-color: #f2f2f2;
+            float: left;
+            padding: 20px;
+        }
+
+        main {
+            margin-left: 220px; /* Adjust margin-left to accommodate the width of the navigation bar */
+            padding: 20px;
+        }
+
+        main h2 {
+            color: #333;
+            margin-left: 3px;
+        }
+
+        main p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-right: 5px;
+            margin-left: 5px;
+
+        }
+
+        .posts{
+            margin-left: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        hr{
+            
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #ccc, #f2f2f2, #ccc);
+            margin: 20px 0;
+        }
+
+        .created_by{
+            font-size: small;
+            text-align: right;
+        }
+
+        .block{
+            padding: 3px;
+            background-color: rgba(192, 213, 255, 0.1);
+            border: 1px solid #ccc;
+            text-align: center;
+            border-radius: 3px;
+            margin: 5px ;
+        }
+
+        .block a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .block:hover{
+            background-color:rgba(192, 213, 255, 0.5);
+           }
+
+
+           /* Your CSS styles */
+        #profile-container {
+        text-align: center;
+        padding-top: 50px;
+        }
+
+        #profile-picture {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* Make the image round */
+        margin: 0 auto; /* Center-align the image */
+        display: block; /* Ensure block-level display for proper margin auto */
+        }
+
+        /* Optional: Add some additional styling for better appearance */
+        .rounded-image {
+        border: 2px solid #fff; /* Add a white border for better visibility on colored backgrounds */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        }
+
+        .navbar_split {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .navbar_split > div {
+        justify-content: space-between;
+        }
+
+        .block {
+        margin: 5px; /* Adjust the margin as needed for spacing */
+        }
+
+
+
+        /* Add additional styling as needed */
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Blog App</h2>
+        <!-- <p>Hello, {{ user.username }}</p> -->
+        <div class="block">
+            <a href="{% url 'blog:home' %}">Home</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="navbar_split">
+            <div>
+                <div class="block">
+                    <a href="{% url 'blog:profile' user.id %}">Profile</a>
+                </div>
+                <div class="block">
+                    <a href="{% url 'blog:logout' %}">Logout</a>
+                </div>
+            </div>
+            <div>
+                <div class="block">
+                    <a href="{% url 'blog:update_profile_pic' %}">Update Profile</a>
+                </div>
+            </div>
+
+        </div>
+
+        {% endif %}
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
